@@ -11,8 +11,8 @@ if($_SESSION["rol"] != 0){ header("location:index.php"); }
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/Diseño.css">
-    <link rel="shortcut icon" href="images/LogoE.ico"/>
-    <title>BuggBlock</title>
+    <link rel="shortcut icon" href="images/logoCarsMini.png"/>
+    <title>CarsBlog</title>
 </head>
 <body>
     <header>

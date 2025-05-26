@@ -18,8 +18,8 @@ if(!isset($_SESSION["rol"])){ header("location:index.php"); }
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 
 <!-- site metas -->
-<title>BuggBlock</title>
-<link rel="shortcut icon" href="images/LogoE.ico"/>
+<title>CarsBlog</title>
+<link rel="shortcut icon" href="images/logoCars.png"/>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">	
@@ -51,7 +51,7 @@ if(!isset($_SESSION["rol"])){ header("location:index.php"); }
 <body>
 	<div class="header_main">
 		<div class="container">
-			<div class="logo"><a href="index.html"><img src="images/LogoInicioBla.png"></a></div>
+			<div class="logo"><a href="index.html"><img src="images/logoCars.png"></a></div>
 		</div>
 	</div>
 	</div>

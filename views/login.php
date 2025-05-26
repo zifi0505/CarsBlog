@@ -17,7 +17,7 @@ if(isset($_SESSION["rol"])){ header("location:index.php"); }
     <section class="form-main">
         <div class="form-content">
             <div class="box">
-                <img src="images/LogoLog.png">
+                <img src="images/logoCarsMini.png" width="70%" height="70%">
                 <h3>Login</h3>
                 <form action="../controlls/sesion.php" method="post">
                    <div class="input-box">
@@ -25,11 +25,11 @@ if(isset($_SESSION["rol"])){ header("location:index.php"); }
                    </div>
                   <div class="input-box">
                     <input type="password" name="password" placeholder="Password" class="input-control" required>
-                    <!--
+                    
                     <div class="input-link">
-                        <a href="" class="gradient-text">¿Contraseña Olvidada?</a>
+                        <a href="" class="gradient-text"><center>¿Contraseña Olvidada?</center></a>
                     </div>
-                -->
+                    
                   </div>
                   <?php if (isset($_COOKIE["errorlogin"])) {
                     echo "<p class='errorMsg'>Datos incorrectos</p>";
