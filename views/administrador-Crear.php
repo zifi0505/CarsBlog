@@ -141,7 +141,7 @@ if(!isset($_SESSION["rol"])){ header("location:index.php"); }
     		<div class="row">
     			<div class="col-md-6">
     				<h1 class="quote_text">Universidad De Colima</h1>
-    				<p class="loan_text"> Ingenieria en software 2D <br>Facultad de Ingenieria Electromecanica</p>
+    				<p class="loan_text"> Ingenieria en software 2E <br>Facultad de Ingenieria Electromecanica</p>
     			</div>
     		</div>
     	</div>
