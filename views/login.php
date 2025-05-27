@@ -26,9 +26,7 @@ if(isset($_SESSION["rol"])){ header("location:index.php"); }
                   <div class="input-box">
                     <input type="password" name="password" placeholder="Password" class="input-control" required>
                     
-                    <div class="input-link">
-                        <a href="" class="gradient-text"><center>¿Contraseña Olvidada?</center></a>
-                    </div>
+
                     
                   </div>
                   <?php if (isset($_COOKIE["errorlogin"])) {

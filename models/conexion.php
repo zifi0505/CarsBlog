@@ -5,7 +5,7 @@
         private $servername= "localhost";
         private $username= "root";
         private $password= "";
-        private $dbname= "buggblock";
+        private $dbname= "carsblog";
         protected $conn;
 
         public function __construct()
