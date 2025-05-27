@@ -21,8 +21,8 @@ $users = $objUser->getUsers();
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 
 <!-- site metas -->
-<title>BuggBlock</title>
-<link rel="shortcut icon" href="images/LogoE.ico"/>
+<title>CarsBlog</title>
+<link rel="shortcut icon" href="images/logoCarsMini.png"/>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">	
@@ -57,7 +57,7 @@ $users = $objUser->getUsers();
 <body>
 	<div class="header_main">
 		<div class="container">
-			<div class="logo"><a href="index.php"><img src="images/LogoInicioBla.png"></a></div>
+			<div class="logo"><a href="index.php"><img src="images/logoCars.png"></a></div>
 		</div>
 	</div>
 	</div>
