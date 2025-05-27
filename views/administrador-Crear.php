@@ -19,7 +19,7 @@ if(!isset($_SESSION["rol"])){ header("location:index.php"); }
 
 <!-- site metas -->
 <title>CarsBlog</title>
-<link rel="shortcut icon" href="images/logoCars.png"/>
+<link rel="shortcut icon" href="images/cars.jpg"/>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">	
