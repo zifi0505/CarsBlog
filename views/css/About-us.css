@@ -348,20 +348,15 @@ body{
 
 
 /*Seccion del pie de pagina*/
-.quote_section{
-	width: 100%;
-	float: left;
-    border: none;
-	height: auto;
-	padding: 50px;
-	font-weight: bold;
+.quote_section {
+  padding: 30px 0;
+ 
 }
 
-.quote_text{
-	color: #ffffff;
-	width: 100%;
-	float: left;
+.quote_text, .loan_text {
+  text-align: center;
 }
+
 
 .loan_text{
 	color: #ffffff;
