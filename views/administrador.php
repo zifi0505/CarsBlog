@@ -24,7 +24,7 @@ if($_SESSION["rol"] == 0){
 
 <!-- site metas -->
 <title>CarsBlog</title>
-<link rel="shortcut icon" href="images/cars.jpg"/>
+<link rel="shortcut icon" href="images/cars.jpeg"/>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">	
