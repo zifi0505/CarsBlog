@@ -29,14 +29,20 @@ html {
 }
 
 body {
-	 background-image: url(../images/Background.png);
-	 color: #000000;
-	 font-size: 14px;
-	 font-family: 'Raleway', sans-serif;
-	 line-height: 1.80857;
-	 font-weight: normal;
-	 overflow-x: hidden;
+  background-image: url(../images/Porsche.jpg);
+  background-size: cover;         /* Escala la imagen para cubrir todo el fondo */
+  background-position: center;    /* Centra la imagen */
+  background-repeat: no-repeat;   /* Evita que se repita */
+  background-attachment: fixed;   /* La imagen se queda fija al hacer scroll */
+  
+  color: #000000;
+  font-size: 14px;
+  font-family: 'Raleway', sans-serif;
+  line-height: 1.80857;
+  font-weight: normal;
+  overflow-x: hidden;
 }
+
 
 a {
      color: #000000;
@@ -212,42 +218,7 @@ a {
 	padding-top: 30px;
 }
 
-/*Caracteristicas del contenedor de informacion*/
-.creative_taital{
-	width: 100%;
-	float: left;
-	background-color: rgba(255, 255, 255, 0.619);
-	height: auto;
-	padding-bottom: 30px;
-	padding-top: 30px;
-    box-shadow: 0px 0px 10px 0px;
-    color:#000000;;
-    margin-top: -110px;
-    margin-bottom: 50px;
-    border-radius: 20px;
-}
 
-/*Contenedor de informacion*/
-.creative_text{
-	color:#000000; /*Color del texto*/
-	font-size: 22pt;
-	text-align: center;	
-	border-bottom: 2px solid #000000; /*Grosor y color de la linea*/
-	width: 46%;
-    margin: 0 auto;
-    text-align: center;
-	font-weight: bold;
-}
-
-.service_text{
-	color: #ffffff;
-	font-size: 20pt;
-	text-align: center;	
-	border-bottom: 1px solid rgb(255, 255, 255);
-	width: 30%;
-    margin: auto;
-	font-weight: bold;
-}
 
 /***************************Seccion de los comentatios*******************/
 /************Colores Usados*************/
@@ -273,6 +244,7 @@ body{
     font-size: 15px;
     line-height: 1.5;
     overflow-x: hidden;
+    text-align: center;
 }
 /*Contenedor "Box" posicion, margenes,etc*/
 .form-main{
@@ -297,10 +269,19 @@ body{
     margin-bottom: 15%;
 }
 
-img{
-    display: flex;
-    margin-left: 34%;
+.logo-container img {
+  max-width: 100%;
+  height: auto;
 }
+
+.logo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+
 
 .form-content h3{
     font-size: 15px;
@@ -367,20 +348,15 @@ img{
 
 
 /*Seccion del pie de pagina*/
-.quote_section{
-	width: 100%;
-	float: left;
-    border: none;
-	height: auto;
-	padding: 50px;
-	font-weight: bold;
+.quote_section {
+  padding: 30px 0;
+ 
 }
 
-.quote_text{
-	color: #ffffff;
-	width: 100%;
-	float: left;
+.quote_text, .loan_text {
+  text-align: center;
 }
+
 
 .loan_text{
 	color: #ffffff;
@@ -413,4 +389,85 @@ img{
     width: 70px;
     height: 70px;
     border-radius: 35px;
+}
+
+/**nuevo estilo css del apartado sobre nosotros**/
+.about-section {
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+  margin: 50px auto;
+  max-width: 1200px;
+}
+
+.section-title {
+  font-size: 2em;
+  text-align: center;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 10px;
+  border-bottom: 2px solid white;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.section-description {
+  text-align: center;
+  color: #cccccc;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.team-member {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.07);
+  padding: 20px;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 25px rgba(255, 255, 255, 0.15);
+}
+
+.team-member img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #ffffff;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team-member {
+  text-align: center;
+  padding: 10px;
+}
+
+
+.team-member h4 {
+  margin: 10px 0 5px;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.team-member p {
+  margin: 0;
+  color: #ccc;
+  font-size: 14px;
 }
