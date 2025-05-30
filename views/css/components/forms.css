@@ -1,0 +1,28 @@
+.quote_section {
+  padding: 5% 0;
+  min-height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--fondo-footer, #1a1a1a); /* fondo oscuro tipo footer */
+  color: var(--Texto, #eee); /* color claro */
+  border-top: 2px solid var(--Borde-linea, #444);
+  backdrop-filter: var(--blur, blur(5px));
+  font-family: inherit;
+  text-align: center;
+  flex-direction: column;
+}
+
+.quote_section .quote_text {
+  font-size: 30px;
+  font-weight: 500;
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.quote_section .loan_text {
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 500;
+}
