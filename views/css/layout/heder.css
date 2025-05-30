@@ -1,0 +1,91 @@
+/* Header base con fondo animado tipo degradado dinámico */
+.header_main {
+    background: linear-gradient(270deg, #0d1b2a, #1b263b, #415a77, #778da9, #0d1b2a);
+    background-size: 1000% 1000%;
+    animation: gradientShift 15s ease infinite;
+    padding: 10px 20px; /* Reducido */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    transition: all 0.5s ease;
+    border-bottom: 2px solid #ff3c00;
+}
+
+/* Animación suave para el fondo degradado */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Estado scrolled con fondo oscuro y efecto de brillo */
+.header_main.scrolled {
+    background: rgba(10, 25, 47, 0.95);
+    padding: 6px 20px; /* Aún más compacto al hacer scroll */
+    box-shadow: 0 6px 20px rgba(255, 60, 0, 0.6);
+    border-bottom-color: #ff6600;
+    backdrop-filter: blur(12px);
+}
+
+/* Logo con animación y efecto brillo al hacer scroll */
+.header_main .logo img {
+    max-height: 48px; /* Reducido */
+    transition: all 0.4s ease;
+    filter: drop-shadow(0 0 3px #ff3c00);
+}
+
+.header_main.scrolled .logo img {
+    max-height: 40px; /* Reducido en estado scroll */
+    filter: drop-shadow(0 0 6px #ff6600) brightness(1.1);
+    transform: rotate(-2deg);
+}
+
+/* Enlaces de navegación - tipografía más moderna y neón sutil */
+.navbar-nav .nav-link {
+    color: #f0f0f0 !important;
+    font-weight: 700;
+    margin-left: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: color 0.3s ease, background 0.3s ease, text-shadow 0.3s ease;
+    border-radius: 8px;
+    padding: 6px 12px; /* Ligeramente más compacto */
+    text-shadow: 0 0 5px #ff3c00;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ff3c00 !important;
+    background-color: rgba(255, 60, 0, 0.15);
+    text-shadow: 0 0 12px #ff6600;
+    box-shadow: 0 0 8px #ff3c00;
+}
+
+/* Botón hamburguesa más marcado con efecto neón */
+.navbar-toggler {
+    border: none;
+    color: #ff3c00;
+    background: transparent;
+    font-weight: 700;
+    font-size: 1.6rem;
+    transition: color 0.3s ease;
+    filter: drop-shadow(0 0 6px #ff3c00);
+}
+
+.navbar-toggler:hover {
+    color: #ff6600;
+    filter: drop-shadow(0 0 10px #ff6600);
+}
+
+/* Ícono de barras con tamaño más grande y color vibrante */
+.navbar-toggler .fa-bars {
+    font-size: 1.8rem;
+}
+
+/* Pequeña animación al hacer hover en el logo */
+.header_main .logo img:hover {
+    filter: drop-shadow(0 0 10px #ff3c00) brightness(1.2);
+    transform: rotate(3deg) scale(1.05);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}

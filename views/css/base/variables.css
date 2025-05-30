@@ -1,0 +1,18 @@
+:root{
+    --Texto: hsl(0, 0%, 100%);
+    --body-bg-color: hsl(200, 54%, 12%);
+    --glass: hsla(0, 0%, 64%, 0.677);
+    --fondo: rgba(168, 47, 47, 0.481);
+    --Borde-linea: hsl(0, 0%, 48%);
+    --blur: blur(10px);
+}
+
+body {
+    color: var(--Texto);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.5;
+    overflow-x: hidden;
+    text-align: center;
+}

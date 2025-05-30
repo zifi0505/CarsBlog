@@ -1,0 +1,71 @@
+/* Footer Automovilístico Estilizado */
+.quote_section {
+  padding: 40px 0;
+  background: linear-gradient(to right, #0d1b2a, #1b263b, #0d1b2a); /* Estilo metálico oscuro */
+  color: #f0f0f0;
+  text-align: center;
+  border-top: 3px solid #ff3c00; /* Línea LED superior */
+  box-shadow: 0 -4px 20px rgba(255, 60, 0, 0.4);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Animación de fondo sutil */
+.quote_section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 60, 0, 0.05), transparent);
+  animation: moveLight 6s linear infinite;
+  z-index: 0;
+}
+
+@keyframes moveLight {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+
+/* Texto principal del footer */
+.quote_text {
+  font-size: 1.8rem;
+  color: #ffe66d;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 60, 0, 0.8);
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Subtexto del footer */
+.loan_text {
+  color: #dddddd;
+  font-size: 1.1rem;
+  margin: 0;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.15);
+  position: relative;
+  z-index: 2;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Separador tipo rejilla LED inferior opcional */
+.quote_section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    #ff3c00,
+    #ff3c00 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  opacity: 0.7;
+  z-index: 2;
+}
