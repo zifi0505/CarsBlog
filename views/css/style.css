@@ -29,14 +29,23 @@ html {
 }
 
 body {
-     background-image: url(../images/Background.png);
-     color: #000000;
-     font-size: 14px;
-     font-family: 'Raleway', sans-serif;;
-     line-height: 1.80857;
-     font-weight: normal;
-     overflow-x: hidden;
+  background-image: url(../images/fondo2.jpg);
+  background-size: cover;         /* Hace que la imagen cubra toda la pantalla */
+  background-repeat: no-repeat;   /* Evita que la imagen se repita */
+  background-position: center;    /* Centra la imagen */
+  background-attachment: fixed;   /* Mantiene la imagen fija al hacer scroll */
+
+  image-rendering: auto; /* Asegura buena escala sin pixelación */
+  -webkit-backface-visibility: hidden; /* Mejora suavidad en algunos navegadores */
+  
+  color: #000000;
+  font-size: 14px;
+  font-family: 'Raleway', sans-serif;
+  line-height: 1.80857;
+  font-weight: normal;
+  overflow-x: hidden;
 }
+
 
 a {
      color: #000000;
@@ -220,7 +229,12 @@ a {
 
 .services_main{
 	width: 100%;
-    background-image: url(../images/Background.png);
+    background-image: url(../images/donge.jpg);
+    background-size: cover;         /* Hace que la imagen cubra toda la pantalla */
+    background-repeat: no-repeat;   /* Evita que la imagen se repita */
+    background-position: center;    /* Centra la imagen */
+    background-attachment: fixed;   /* Mantiene la imagen fija al hacer scroll */
+    image-rendering: auto; /* Asegura buena escala sin pixelación */
 	float: left;
 	height: auto;
 	padding-bottom: 30px;

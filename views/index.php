@@ -50,11 +50,6 @@
 
 <!-- body -->
 <body>
-	<div class="header_main">
-		<div class="container">
-			<div class="logo"><a href="#"><img src="images/logoCars.png"></a></div>
-		</div>
-	</div>
 	
 	<div class="header">
 		<div class="container">
@@ -94,6 +89,11 @@
             </div>
         </div> 
     </div>
+	 <div class="header_main">
+		<div class="container">
+			<div class="logo"><a href="#"><img src="images/logoCars.png"></a></div>
+		</div>
+	</div>
     <!-- end header end -->    
 
     <!--banner start -->

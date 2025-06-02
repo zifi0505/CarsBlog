@@ -56,12 +56,6 @@ if($_SESSION["rol"] == 0){
 
 <!-- body -->
 <body>
-	<div class="header_main">
-		<div class="container">
-			<div class="logo"><a href="index.php"><img src="images/logoCars.png"></a></div>
-		</div>
-	</div>
-	</div>
 	<div class="header">
 		<div class="container">
         <!--  header inner -->
@@ -86,6 +80,11 @@ if($_SESSION["rol"] == 0){
             </div>
         </div> 
     </div>
+		<div class="header_main">
+		<div class="container">
+			<div class="logo"><a href="index.php"><img src="images/logoCars.png"></a></div>
+		</div>
+	</div>
     <!-- end header end -->    
     <div>
 		<br><br><br><br><br>
