@@ -18,6 +18,7 @@
     </div>
     <div class="section_service_2">
       <h1 class="service_text">Publicaciones</h1>
+
     </div>
   </div>
 

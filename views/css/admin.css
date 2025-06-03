@@ -23,7 +23,7 @@ html {
 }
 
 body {
-     background-image: url(../images/Background.png);
+     background-image: url(../images/fondo2.jpg);
      color: #000000;
      font-size: 14px;
      font-family: 'Raleway', sans-serif;;
@@ -152,8 +152,12 @@ a {
 .header_main{
 	width: 100%;
 	float: left;
-	background-image:url(../images/Background.png);
-	height: auto;
+	background-image:url(../images/fondo2.jpg);
+    background-size: cover;         /* Hace que la imagen cubra toda la pantalla */
+    background-repeat: no-repeat;   /* Evita que la imagen se repita */
+    background-position: center;    /* Centra la imagen */
+    background-attachment: fixed;   /* Mantiene la imagen fija al hacer scroll */
+    height: auto;
 }
 
 .last{
@@ -195,10 +199,11 @@ a {
 .services_main{
 	width: 100%;
 	float: left;
-    background-image: url(../images/Background.png);
-	height: auto;
-	padding-bottom: 30px;
-	padding-top: 30px;
+    background-image: url(../images/porsheBlanco.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 /*Caracteristicas del contenedor de informacion*/
