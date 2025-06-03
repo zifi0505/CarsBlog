@@ -1,26 +1,28 @@
-@import url('https://fonts.googleapis.com/css2? family= Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,600 & display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
 
-
-/************Colores Usados*************/
-:root{
-    --Fondo: rgb(21, 44, 66);
+/************ Colores Usados *************/
+:root {
+    --Fondo: rgb(245, 248, 250);
     --Boton1: rgba(176, 10, 10, 0.5);
     --Boton2: rgba(201, 201, 201, 0.5);
-    --Texto: hsl(0, 0%, 100%);
-    --Texto-suave: rgb(230, 230, 230);
+    --Texto: #ffffff;
+    --Texto-suave: #ffffff;
     --body-bg-color: hsl(200, 54%, 12%);
     --glass: hsla(0, 0%, 100%, 0.327);
     --Borde-linea: hsla(0, 0%, 100%, 0.403);
     --blur: blur(10px);
 }
-*{
+
+/************ Reset básico *************/
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
-    color: var(--Texto-suave);
+/************ Texto general *************/
+body {
+    color: var(--Texto);
     font-family: 'Nunito', sans-serif;
     font-weight: 500;
     font-size: 25px;
@@ -28,13 +30,25 @@ body{
     overflow-x: hidden;
 }
 
-img{
+/************ Enlaces en blanco *************/
+a {
+    color: white !important;
+    text-decoration: none;
+}
+a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+}
+
+/************ Imagen Logo *************/
+img {
     display: flex;
     margin-top: -20%;
     margin-left: 18%;
 }
 
-.form-main{
+/************ Contenedor del formulario *************/
+.form-main {
     min-height: 100vh;
     padding: 60px 150px;
     display: flex;
@@ -43,28 +57,23 @@ img{
     justify-content: center;
 }
 
-.form-content{
+/************ Caja central *************/
+.form-content {
     width: 100%;
     max-width: 450px;
     position: center;
     z-index: 0.8;
 }
 
-.form-content .box{
-    border-color: var(--glass);
+.form-content .box {
     border: 2px solid var(--Borde-linea);
-    padding: 30px 70px;
-    border-radius: 20px;
+    padding: 30px 10px;
+    border-radius: 30px;
     backdrop-filter: var(--blur);
 }
 
-.form-content .box{
-    padding: 30px 10px;
-    border-radius: 30px;
-    backdrop-filter: var(--blur)
-}
-
-.form-content h3{
+/************ Título *************/
+.form-content h3 {
     font-size: 30px;
     text-align: center;
     line-height: 1.2;
@@ -72,94 +81,75 @@ img{
     font-weight: 500;
 }
 
-.form-content form{
+/************ Formulario *************/
+.form-content form {
     margin: 25px 0 20px;
 }
 
-.form-content .input-box{
-    margin: 25px
+.form-content .input-box {
+    margin: 25px;
 }
 
-.form-content ::placeholder{
-    color: inherit;
-    opacity: 25px;
+.form-content ::placeholder {
+    color: #ffffff;
 }
 
-.form-content .input-control{
+.form-content .input-control {
     display: block;
     height: 45px;
     width: 100%;
     background-color: transparent;
     border: none;
     border-bottom: 3px solid var(--Borde-linea);
-    color: rgb(255, 255, 255);
-    font-weight: inherit;
-    font-family: inherit;
+    color: #ffffff;
     font-size: 17px;
 }
 
-.form-content .input-control:focus{
+.form-content .input-control:focus {
     outline: none;
 }
 
-.form-content .input-link{
+/************ Enlaces del formulario *************/
+.form-content .input-link {
     margin-top: 5%;
     text-align: right;
 }
 
-.form-content .btn{
+/************ Botones *************/
+.form-content .btn,
+.form-content .btn.btn1 {
     height: 50px;
     width: 100%;
     font-size: 17px;
     font-weight: 500;
     text-transform: capitalize;
-    font-family: inherit;
-    cursor: pointer;
     border-radius: 25px;
     user-select: none;
+    border: none;
+    color: var(--Texto);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    font-family: inherit;
+}
+.form-content .btn {
     background: var(--Boton1);
-    border: none;
-    color: var(--Texto);
-    position: relative;
-    overflow: hidden;
 }
-.form-content .btn.btn1{
-    margin-top: 0%;
-    height: 50px;
-    width: 100%;
-    font-size: 17px;
-    font-weight: 500;
-    text-transform: capitalize;
-    font-family: inherit;
-    cursor: pointer;
-    border-radius: 25px;
-    user-select: none;
+.form-content .btn.btn1 {
     background: var(--Boton2);
-    border: none;
-    color: var(--Texto);
-    position: relative;
-    overflow: hidden;
 }
 
-
-/************************************************/
-/*----------------------------------------------*/
-/************************************************/
-
-
-/************Seccion del Fondo*************/
-section{
-    position: flex;
+/************ Fondo con imagen y olas *************/
+section {
     width: 100%;
     height: 5vh;
     background-image: url(../images/BMW.jpg);
-    overflow: auto;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
+    overflow: auto;
 }
-/************Parametros de las Ondas(Wave)*************/
+
 .wave {
     position: absolute;
     bottom: 0;
@@ -176,6 +166,7 @@ section{
 .wave3 { animation: animate 30s linear infinite; opacity: 0.2; bottom: 5px; z-index: 998; }
 .wave4 { animation: animate2 5s linear infinite; opacity: 0.7; bottom: 10px; z-index: 997; }
 
+/************ Animaciones de las olas *************/
 @keyframes animate {
     0% { background-position-x: 0; }
     100% { background-position-x: 1000px; }
@@ -185,40 +176,20 @@ section{
     100% { background-position-x: -1000px; }
 }
 
-/************Parametros de Animacion*************/
-@keyframes animate {
-    0%
-    {
-        background-position-x: 0;
-    }
-    100% 
-    {
-        background-position-x: 1000px;
-    }
-}
-@keyframes animate2 {
-    0% 
-    {
-        background-position-x: 0;
-    }
-    100% 
-    {
-        background-position-x: -1000px;
-    }
-}
-
+/************ Mensaje de error *************/
 .errorMsg {
     text-align: center;
     color: white;
-    background-color: rgb(230, 83, 37, .405);
+    background-color: rgba(230, 83, 37, 0.405);
     border-radius: 25px;
     width: 70%;
     margin: 20px auto 25px;
     font-size: 25px;
 }
 
-.select-role{
-    font-family: verdana;
+/************ Select de roles *************/
+.select-role {
+    font-family: Verdana;
     font-size: 15px;
     color: white;
     background-color: #666;
