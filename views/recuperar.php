@@ -1,10 +1,9 @@
 <?php
-// Mostrar errores
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Conexión corregida
+// Conexión a la base de datos
 $conexion = new mysqli("localhost", "root", "", "carsblog");
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
@@ -56,40 +55,37 @@ $conexion->close();
 <head>
     <meta charset="UTF-8">
     <title>Restablecer Contraseña</title>
-    <link rel="stylesheet" href="css/Diseño.css" />
-    <link rel="shortcut icon" href="images/cars.jpeg" />
+    <link rel="stylesheet" href="css/Diseño.css">
+    <link rel="shortcut icon" href="images/cars.jpeg">
 </head>
 <body>
 
-<!-- Formulario Glass Moderno -->
 <section class="form-main">
     <div class="form-content">
         <div class="box">
-            <img src="images/logoCarsMini.png" alt="Logo CarsBlog" width="70%" height="70%" />
+            <img src="images/logoCarsMini.png" alt="Logo CarsBlog" style="width: 70%; height: auto; display: block; margin: 0 auto 20px;">
             <h3>Restablecer Contraseña</h3>
 
             <?php if ($mensaje): ?>
-                <p class="errorMsg" style="background-color: <?= $exito ? 'rgba(0,180,100,0.4)' : 'rgba(230,83,37,0.4)' ?>;">
+                <p class="errorMsg" style="background-color: <?= $exito ? 'rgba(0,180,100,0.3)' : 'rgba(230,83,37,0.4)' ?>;">
                     <?= htmlspecialchars($mensaje) ?>
                 </p>
             <?php endif; ?>
 
             <form method="POST">
                 <div class="input-box">
-                    <label for="usuario">Usuario</label>
                     <input type="text" name="usuario" id="usuario" placeholder="Ingresa tu usuario" class="input-control" required>
                 </div>
                 <div class="input-box">
-                    <label for="nueva">Nueva contraseña</label>
                     <input type="password" name="nueva" id="nueva" placeholder="Nueva contraseña" class="input-control" required>
                 </div>
                 <div class="input-box">
-                    <label for="confirmar">Confirmar contraseña</label>
                     <input type="password" name="confirmar" id="confirmar" placeholder="Repite la contraseña" class="input-control" required>
                 </div>
+
                 <button type="submit" class="btn">Actualizar contraseña</button>
 
-                <div class="input-link">
+                <div class="input-link" style="margin-top: 20px;">
                     <a href="login.php" class="recuperar-link">¿Volver al inicio de sesión?</a>
                 </div>
             </form>
@@ -97,7 +93,7 @@ $conexion->close();
     </div>
 </section>
 
-<!-- Fondo con olas animadas -->
+<!-- Olas decorativas -->
 <section>
     <div class="wave wave1"></div>
     <div class="wave wave2"></div>
