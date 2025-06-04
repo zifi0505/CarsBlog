@@ -4,6 +4,7 @@ session_start();
 if(!isset($_SESSION["rol"])){ header("location:index.php"); }
 use models\publicaciones;
 $publicacion = new publicaciones();
+$posts = $publicacion->getpublicaciones();
 if($_SESSION["rol"] == 0){
 	$posts = $publicacion->getPublicacionesWithPublisher();
 } elseif ($_SESSION["rol"] == 1) {
