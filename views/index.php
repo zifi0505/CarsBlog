@@ -14,7 +14,7 @@
   <div class="container">
     <div class="creative_taital">
       <h1 class="creative_text">El Blogg de unos Estudiante</h1>
-      <p style="color: #000000; text-align: center;">Esta es una página tipo blogger personal sobre nuestra opinión en algunas tecnologías que hemos probado o queremos probar...</p>
+      <p style="color: #000000; text-align: center;">Esta es una página tipo blogger donde queremos compartir las ultimas novedades en lo automovilistico...</p>
     </div>
     <div class="section_service_2">
       <h1 class="service_text">Publicaciones</h1>

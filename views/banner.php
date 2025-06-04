@@ -4,23 +4,20 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="titlepage-h1">
-            <h1 class="bnner_title">NUEVAS GRAFICAS<br>
-            <span style="color: #ffffff">Las Radeon RX 7900 XTX y RX 7900 XT de AMD ya están aquí</span></h1>
-            <p class="long_text">Un blog donde expertos prueban y dan su opinión sobre la tecnología</p>
+            <h1 class="bnner_title">REVOLUCION ELECTRICA: TESLA LANZA EL MODELO 2, SU ELECTRICO MAS ASEQUIBLE <br>
+            <span style="color: #ffffff">Tesla ha presentado el tan esperado Modelo 2, un hatchback compacto con un precio de entrada de $25,000 USD. </span></h1>
           </div>
         </div>
         <div class="carousel-item">
           <div class="titlepage-h1">
-            <h1 class="bnner_title">NOTICIAS PARA EL MERCADO<br>
-            <span style="color: #ffffff">El mercado de tarjetas gráficas vive su peor momento desde 2008</span></h1>
-            <p class="long_text">El próximo 13 de diciembre llegarán las primeras RX 7000</p>
+            <h1 class="bnner_title">BMW Y MERCEDES UNEN FUERZAS EN UNA NUEVA PLATAFORMA DE VEHICULOS AUTONOMOS<br>
+            <span style="color: #ffffff">Dos gigantes alemanes han anunciado una colaboración estratégica para desarrollar una arquitectura compartida enfocada en vehículos totalmente autónomos.</span></h1>
           </div>
         </div>
         <div class="carousel-item">
           <div class="titlepage-h1">
-            <h1 class="bnner_title">Fallas Comunes de Nvidia<br>
-            <span style="color: #ffffff">Las gráficas de la Serie 4000 han llegado con defectos</span></h1>
-            <p class="long_text">Quédate a averiguarlo</p>
+            <h1 class="bnner_title">TOYOTA PRESENTA BATERIAS DE ESTADO SOLIDO PARA AUTOS HIBRIDOS Y ELECTRICOS<br>
+            <span style="color: #ffffff">Toyota ha revelado sus primeros modelos de prueba equipados con baterías de estado sólido, prometiendo cargas completas en menos de 10 minutos y una mayor durabilidad.</span></h1>
           </div>
         </div>
       </div> 
