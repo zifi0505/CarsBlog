@@ -40,7 +40,7 @@
               <a class="nav-link" href="../controlls/cerrarSesion.php"><i class="bi bi-door-open-fill"></i> Cerrar sesión</a>
             </li>
             <li class="nav-item">
-              <span class="nav-link">| Bienvenido <?php echo htmlspecialchars($_SESSION['name']); ?></span>
+              <span class="nav-link"> Bienvenido <?php echo htmlspecialchars($_SESSION['name']); ?></span>
             </li>
           <?php } ?>
         </ul>
