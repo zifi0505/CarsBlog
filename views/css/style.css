@@ -250,8 +250,7 @@ a {
 	padding-bottom: 30px;
 	padding-top: 30px;
     box-shadow: 0px 0px 10px 0px;
-    color:#000000;;
-    margin-top: -110px;
+    color:#000000;
     margin-bottom: 50px;
     border-radius: 20px;
 }
@@ -332,7 +331,7 @@ body{
     margin-left: -45%;
     line-height: 0;
     margin-top: -20px;
-    color: var(--Texto);
+    color: white;
     font-weight: 500;
 }
 /*Texgto del titulo de la Publicacion*/
@@ -340,7 +339,7 @@ body{
     font-size: 30px;
     text-align: center;
     line-height: 1.7;
-    color: var(--Texto);
+    color: white;
     font-weight: 500;
     border-bottom: 2px solid #ffffff; /*Grosor y color de la linea*/
 }
@@ -350,7 +349,7 @@ body{
     font-size: 17px;
     text-align: left;
     line-height: 1.5;
-    color: var(--Texto);
+    color: white;
     font-weight: 500;
 }
 /*Fecha de la publicacion*/
@@ -359,7 +358,7 @@ body{
     text-align: right;
     line-height: 1.2;
     margin-top: 20px;
-    color: var(--Texto);
+    color: white;
     font-weight: 500;
 }
 .form-content form{

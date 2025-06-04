@@ -3,7 +3,7 @@
     background: linear-gradient(270deg, #0d1b2a, #1b263b, #415a77, #778da9, #0d1b2a);
     background-size: 1000% 1000%;
     animation: gradientShift 15s ease infinite;
-    padding: 10px 20px; /* Reducido */
+    padding: 5px 10px; /* Reducido aún más: arriba/abajo 5px, izquierda/derecha 10px */
     position: fixed;
     top: 0;
     width: 100%;
