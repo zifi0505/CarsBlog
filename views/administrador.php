@@ -81,10 +81,7 @@ if($_SESSION["rol"] == 0){
             </div>
         </div> 
     </div>
-		<div class="header_main">
-		<div class="container">
-			<div class="logo"><a href="index.php"><img src="images/logoCars.png"></a></div>
-		</div>
+		
 	</div>
     <!-- end header end -->    
     <div>
@@ -149,6 +146,16 @@ if($_SESSION["rol"] == 0){
 						}
 					})
 				}
-			</script>
+			<script>
+  const btnsEliminar = document.querySelectorAll('.form-eliminar');
+  btnsEliminar.forEach(form => {
+    form.addEventListener("submit", e => {
+      if (!confirm("¿Seguro que deseas eliminar este usuario?")) {
+        e.preventDefault();
+      }
+    });
+  });
+</script>
+
 </body>
 </html>

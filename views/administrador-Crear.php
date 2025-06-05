@@ -42,16 +42,47 @@ if(!isset($_SESSION["rol"])){ header("location:index.php"); }
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 
     <!-- Estilo para el recuadro blanco -->
+   
     <style>
         .form-wrapper {
-            background-color: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
             max-width: 600px;
             margin: auto;
         }
+
+        .form-wrapper h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .button {
+            border: none;
+            padding: 10px 20px;
+            background: #2c3e50;
+            color: white;
+            border-radius: 12px;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+
+        .button:hover {
+            background: #1a252f;
+            transition: background 0.3s ease;
+        }
+
+        .button__horizontal, .button__vertical {
+            display: none;
+        }
     </style>
+</head>
+
 </head>
 
 <body>
@@ -78,11 +109,6 @@ if(!isset($_SESSION["rol"])){ header("location:index.php"); }
         </div> 
     </div>
 
-    <div class="header_main">
-        <div class="container">
-            <div class="logo"><a href="index.php"><img src="images/logoCars.png"></a></div>
-        </div>
-    </div>
 
     <div>
         <br><br><br><br><br>

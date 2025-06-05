@@ -1,20 +1,40 @@
 <?php
 namespace controlls;
 require_once("../autoload.php");
+
 use models\user;
 session_start();
-if(isset($_POST["rol"])){ header("location:../views/index.php"); }
 
-$user = new user($_POST['username'], $_POST['password']);
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $username = trim($_POST["username"] ?? "");
+    $password = $_POST["password"] ?? "";
 
-if($user->getUser_db()){
-    $_SESSION['rol'] = $user->getRole();
-    $_SESSION['name'] = $user->getUser();
-    $_SESSION['id_user'] = $user->getId();
-    header("location:../views/administrador.php");
-} else{
-    setcookie("errorlogin", "1", time() + 3600, path: "/");
-    header("location:../views/login.php");
+    if ($username === "" || $password === "") {
+        setcookie("errorlogin", "1", time() + 2, "/");
+        header("Location: ../views/login.php");
+        exit;
+    }
+
+    // Buscar usuario por username
+    $objUser = new user();
+    $datos = $objUser->getUserByUsername($username);
+
+    // Verificar si existe y la contraseña es correcta
+    if ($datos && password_verify($password, $datos["password"])) {
+        $_SESSION["rol"] = $datos["rol"];
+        $_SESSION["name"] = $datos["username"];
+        $_SESSION["id_user"] = $datos["id"];
+
+        // Redirigir según el rol
+        if ($_SESSION["rol"] == 0) {
+            header("Location: ../views/administrador.php");
+        } else {
+            header("Location: ../views/index.php");
+        }
+        exit;
+    } else {
+        setcookie("errorlogin", "1", time() + 2, "/");
+        header("Location: ../views/login.php");
+        exit;
+    }
 }
-
-?>
