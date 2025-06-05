@@ -54,12 +54,7 @@ $users = $objUser->getUsers();
 </head>
 
 <!-- body -->
-<body>
-	<div class="header_main">
-		<div class="container">
-			<div class="logo"><a href="index.php"><img src="images/logoCars.png"></a></div>
-		</div>
-	</div>
+	
 	</div>
 	<div class="header">
 		<div class="container">

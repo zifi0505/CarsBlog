@@ -1,53 +1,73 @@
 <?php
 require_once("../autoload.php");
 session_start();
-if(!isset($_SESSION["rol"])){ header("location:index.php"); }
-if($_SESSION["rol"] != 0){ header("location:index.php"); }
+
+if (!isset($_SESSION["rol"]) || $_SESSION["rol"] != 0) {
+    header("location:../public/index.php");
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/Diseño.css">
-    <link rel="shortcut icon" href="images/logoCarsMini.png"/>
-    <title>CarsBlog</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crear Usuario - CarsBlog</title>
+    <link rel="stylesheet" href="css/Diseño.css" />
+    <link rel="shortcut icon" href="images/logoCarsMini.png" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-    <section class="form-main">
-        <div class="form-content">
-            <div class="box">
-                <h3>Crear Usuario</h3>
-                <form action="../controlls/crearUsuario.php" method="post">
-                   <div class="input-box">
-                     <input type="text" name="username" placeholder="User" class="input-control" required>
-                   </div>
-                  <div class="input-box">
-                    <input type="password" name="password" placeholder="Password" class="input-control" required>
-                  </div>
-                  <select name="role" id="role" class="select-role">
-                    <option value="0" class="option-role">Administrador</option>
-                    <option value="1" class="option-role" selected>Publicador</option>
-                  </select>
-                  <button href="Administrador.html" type="submit" class="btn">Crear Usuario</button>
-                </form>
-                <button onclick="gotohome()" class="btn btn1">Cancelar</button>
-                
-            </div>
+
+<section class="form-main">
+    <div class="form-content">
+        <div class="box">
+            <h3>Crear Usuario</h3>
+
+            <form action="../controlls/crearUsuario.php" method="post">
+                <div class="input-box">
+                    <i class="fas fa-user-plus"></i>
+                    <input type="text" name="username" placeholder="Nombre de usuario" class="input-control" required />
+                </div>
+
+                <div class="input-box">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="password" placeholder="Contraseña" class="input-control" required />
+                </div>
+
+                <div class="input-box">
+                    <i class="fas fa-user-shield"></i>
+                    <select name="role" class="input-control" required>
+                        <option value="0">Administrador</option>
+                        <option value="1" selected>Publicador</option>
+                    </select>
+                </div>
+
+                <?php if (isset($_COOKIE["erroruser"])): ?>
+                    <p class="errorMsg">El usuario ya existe</p>
+                    <?php setcookie("erroruser", "", time() - 3600, "/"); ?>
+                <?php endif; ?>
+
+                <button type="submit" class="btn">Crear Usuario</button>
+            </form>
+
+            <button onclick="gotohome()" class="btn btn1" style="margin-top: 20px;">Cancelar</button>
         </div>
-    </section>
-    <section>
-        <div class="wave wave1"></div>
-        <div class="wave wave2"></div>
-        <div class="wave wave3"></div>
-        <div class="wave wave4"></div>
-    </section>
-    <script>
-        function gotohome(){
-            window.location.href="administrador-usuarios.php"
-        }
-    </script>
+    </div>
+</section>
+
+<!-- Olas decorativas -->
+<section>
+    <div class="wave wave1"></div>
+    <div class="wave wave2"></div>
+    <div class="wave wave3"></div>
+    <div class="wave wave4"></div>
+</section>
+
+<script>
+    function gotohome() {
+        window.location.href = "administrador-usuarios.php";
+    }
+</script>
 </body>
 </html>

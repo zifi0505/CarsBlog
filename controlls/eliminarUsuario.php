@@ -1,13 +1,23 @@
 <?php
-  namespace controlls;
-  session_start();
-  if(!isset($_SESSION["rol"])){ header("location:../views/index.php"); }
-  if($_SESSION["rol"] != 0){ header("location:../views/index.php"); die();}
-  require_once("../autoload.php");
-  use models\user;
-  $usuario = new user();
-  if (!$usuario->deleteUser($_POST['id'])) {
-    setcookie("errorlogindelete", "error", time() + 3600, path: "/");
-  }
-  header("location:../views/administrador-usuarios.php");
-?>
+require_once("../autoload.php");
+session_start();
+
+// Validación de acceso solo para administradores
+if (!isset($_SESSION["rol"]) || $_SESSION["rol"] != 0) {
+    header("Location: ../public/index.php");
+    exit;
+}
+
+use models\user;
+
+$objUser = new user();
+
+// Procesar eliminación
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["id"])) {
+    $id = $_POST["id"];
+    $objUser->deleteUser($id);
+}
+
+// Redirigir al panel de administración
+header("Location: ../views/administrador-usuarios.php");
+exit;
