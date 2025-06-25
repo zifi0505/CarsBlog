@@ -24,6 +24,10 @@ if (isset($_SESSION["rol"])) {
 <section class="form-main">
     <div class="form-content">
         <div class="box">
+             <!-- ✅ Aquí va la imagen -->
+            <div class="login-img" style="text-align: center; margin-bottom: 20px;">
+                <img src="images/logoCars1.png" alt="Login" style="max-width: 150px; border-radius: 10px;" />
+            </div>
             <h3>Login</h3>
 
             <form action="../controlls/sesion.php" method="post">
