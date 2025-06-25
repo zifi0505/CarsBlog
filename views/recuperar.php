@@ -1,6 +1,5 @@
 <?php
 ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Conexión a la base de datos
@@ -10,88 +9,116 @@ if ($conexion->connect_error) {
 }
 
 $mensaje = "";
-$exito = false;
+$estado = "pedir_correo";
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $usuario = trim($_POST["usuario"] ?? '');
-    $nueva = $_POST["nueva"] ?? '';
-    $confirmar = $_POST["confirmar"] ?? '';
+// 1. ENVÍA TOKEN AL CORREO
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["correo"])) {
+    $correo = trim($_POST["correo"]);
 
-    if (empty($usuario) || empty($nueva) || empty($confirmar)) {
-        $mensaje = "Todos los campos son obligatorios.";
-    } elseif ($nueva !== $confirmar) {
-        $mensaje = "Las contraseñas no coinciden.";
+    if (empty($correo)) {
+        $mensaje = "Debes ingresar un correo.";
     } else {
-        $stmt = $conexion->prepare("SELECT id FROM users WHERE username = ?");
-        $stmt->bind_param("s", $usuario);
+        $stmt = $conexion->prepare("SELECT id FROM users WHERE email = ?");
+        $stmt->bind_param("s", $correo);
         $stmt->execute();
-        $stmt->store_result();
+        $result = $stmt->get_result();
 
-        if ($stmt->num_rows === 1) {
-            $hash = password_hash($nueva, PASSWORD_DEFAULT);
-            $stmt->close();
+        if ($result->num_rows === 1) {
+            $user = $result->fetch_assoc();
+            $token = bin2hex(random_bytes(32));
+            $expira = date("Y-m-d H:i:s", time() + 3600); // 1 hora
 
-            $stmt = $conexion->prepare("UPDATE users SET password = ? WHERE username = ?");
-            $stmt->bind_param("ss", $hash, $usuario);
-            if ($stmt->execute()) {
-                $exito = true;
-                $mensaje = "Contraseña actualizada correctamente.";
-            } else {
-                $mensaje = "Error al actualizar la contraseña.";
-            }
+            $stmt = $conexion->prepare("UPDATE users SET reset_token = ?, token_expira = ? WHERE id = ?");
+            $stmt->bind_param("ssi", $token, $expira, $user["id"]);
+            $stmt->execute();
+
+            $enlace = "http://localhost/recuperar.php?token=$token";
+
+            // ENVÍO DEL CORREO (reemplaza con PHPMailer en producción)
+            mail($correo, "Recuperar contraseña", "Haz clic en este enlace para restablecer tu contraseña: $enlace");
+
+            $mensaje = "Se ha enviado un enlace de recuperación a tu correo.";
+            $estado = "enviado";
         } else {
-            $mensaje = "Usuario no encontrado.";
+            $mensaje = "Correo no encontrado.";
         }
-
-        $stmt->close();
     }
 }
 
-$conexion->close();
+// 2. MOSTRAR FORMULARIO SI SE ENVIÓ TOKEN
+if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["token"])) {
+    $token = $_GET["token"];
+    $estado = "nueva_pass";
+}
+
+// 3. ACTUALIZA LA CONTRASEÑA SI EL TOKEN ES VÁLIDO
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["token"])) {
+    $token = $_POST["token"];
+    $nueva = $_POST["nueva"] ?? '';
+    $confirmar = $_POST["confirmar"] ?? '';
+
+    if ($nueva !== $confirmar || empty($nueva)) {
+        $mensaje = "Las contraseñas no coinciden o están vacías.";
+        $estado = "nueva_pass";
+    } else {
+        $stmt = $conexion->prepare("SELECT id FROM users WHERE reset_token = ? AND token_expira > NOW()");
+        $stmt->bind_param("s", $token);
+        $stmt->execute();
+        $res = $stmt->get_result();
+
+        if ($res->num_rows === 1) {
+            $user = $res->fetch_assoc();
+            $hash = password_hash($nueva, PASSWORD_DEFAULT);
+
+            $stmt = $conexion->prepare("UPDATE users SET password = ?, reset_token = NULL, token_expira = NULL WHERE id = ?");
+            $stmt->bind_param("si", $hash, $user["id"]);
+            $stmt->execute();
+
+            $mensaje = "Contraseña actualizada correctamente.";
+            $estado = "finalizado";
+        } else {
+            $mensaje = "Token inválido o expirado.";
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Restablecer Contraseña</title>
-    <link rel="stylesheet" href="css/Diseño.css">
-    <link rel="shortcut icon" href="images/cars.jpeg">
+    <title>Restablecer contraseña</title>
 </head>
 <body>
+    <h2>Restablecer contraseña</h2>
 
-<section class="form-main">
-    <div class="form-content">
-        <div class="box">
-            <img src="images/logoCarsMini.png" alt="Logo CarsBlog" style="width: 70%; height: auto; display: block; margin: 0 auto 20px;">
-            <h3>Restablecer Contraseña</h3>
+    <?php if ($mensaje): ?>
+        <p><strong><?= htmlspecialchars($mensaje) ?></strong></p>
+    <?php endif; ?>
 
-            <?php if ($mensaje): ?>
-                <p class="errorMsg" style="background-color: <?= $exito ? 'rgba(0,180,100,0.3)' : 'rgba(230,83,37,0.4)' ?>;">
-                    <?= htmlspecialchars($mensaje) ?>
-                </p>
-            <?php endif; ?>
+    <?php if ($estado === "pedir_correo"): ?>
+        <form method="POST">
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" name="correo" required>
+            <button type="submit">Enviar enlace</button>
+        </form>
 
-            <form method="POST">
-                <div class="input-box">
-                    <input type="text" name="usuario" id="usuario" placeholder="Ingresa tu usuario" class="input-control" required>
-                </div>
-                <div class="input-box">
-                    <input type="password" name="nueva" id="nueva" placeholder="Nueva contraseña" class="input-control" required>
-                </div>
-                <div class="input-box">
-                    <input type="password" name="confirmar" id="confirmar" placeholder="Repite la contraseña" class="input-control" required>
-                </div>
+    <?php elseif ($estado === "nueva_pass"): ?>
+        <form method="POST">
+            <input type="hidden" name="token" value="<?= htmlspecialchars($_GET["token"]) ?>">
+            <label>Nueva contraseña:</label>
+            <input type="password" name="nueva" required>
+            <label>Confirmar contraseña:</label>
+            <input type="password" name="confirmar" required>
+            <button type="submit">Guardar nueva contraseña</button>
+        </form>
 
-                <button type="submit" class="btn">Actualizar contraseña</button>
+    <?php elseif ($estado === "finalizado"): ?>
+        <p><a href="login.php">Volver al login</a></p>
+    <?php endif; ?>
+</body>
+</html>
 
-                <div class="input-link" style="margin-top: 20px;">
-                    <a href="login.php" class="recuperar-link">¿Volver al inicio de sesión?</a>
-                </div>
-            </form>
-        </div>
-    </div>
-</section>
 
 <!-- Olas decorativas -->
 <section>
