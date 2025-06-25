@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $datos = $objUser->getUserByUsername($username);
 
     // Verificar si existe y la contraseña es correcta
-    if ($datos && password_verify($password, $datos["password"])) {
+    if ($datos && isset($datos["password"]) && password_verify($password, $datos["password"])) {
         $_SESSION["rol"] = $datos["rol"];
         $_SESSION["name"] = $datos["username"];
         $_SESSION["id_user"] = $datos["id"];
