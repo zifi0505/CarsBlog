@@ -70,12 +70,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <input type="text" id="username" name="username" placeholder="Nombre de usuario" class="input-control" required />
                     </div>
                     <div class="input-box">
-                        <label for="password">Contraseña</label>
-                        <input type="password" id="password" name="password" placeholder="Contraseña" class="input-control" required />
-                    </div>
-                    <div class="input-box">
-                        <label for="confirm_password">Confirmar Contraseña</label>
-                        <input type="password" id="confirm_password" name="confirm_password" placeholder="Repite la contraseña" class="input-control" required />
+    <label for="password">Contraseña</label>
+    <input type="password" id="password" name="password" placeholder="Contraseña" class="input-control" required />
+    <button type="button" onclick="togglePassword('password')">Mostrar</button>
+</div>
+
+<div class="input-box">
+    <label for="confirm_password">Confirmar Contraseña</label>
+    <input type="password" id="confirm_password" name="confirm_password" placeholder="Repite la contraseña" class="input-control" required />
+    <button type="button" onclick="togglePassword('confirm_password')">Mostrar</button>
+</div>
+
                     </div>
 
                     <?php if (isset($_COOKIE["errorregistro"])): ?>
