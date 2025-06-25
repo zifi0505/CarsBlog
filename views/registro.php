@@ -81,6 +81,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <button type="button" onclick="togglePassword('confirm_password')">Mostrar</button>
 </div>
 
+<!-- 🔙 Botón para volver al inicio -->
+<div style="margin-top: 20px;">
+    <a href="index.html">
+        <button type="button">Volver al inicio</button>
+    </a>
+</div>
+
                     </div>
 
                     <?php if (isset($_COOKIE["errorregistro"])): ?>
@@ -111,5 +118,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             window.location.href = "index.php";
         }
     </script>
+
+    <script src="js/ojito.js"></script>
 </body>
+
+</body>
+
 </html>
+
+
