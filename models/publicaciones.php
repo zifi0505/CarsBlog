@@ -29,7 +29,7 @@ class publicaciones extends conexion {
     }
 
     public function getPublicaciones() {
-        $sql = "SELECT * FROM publicaciones ORDER BY fecha_creacion DESC";
+        $sql = "SELECT * FROM publicaciones ORDER BY fecha_creacion ASC";
         $execute = $this->conn->query($sql);
         return $execute->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -38,13 +38,13 @@ class publicaciones extends conexion {
         $sql = "SELECT p.id_publicaciones, p.titulo, p.fecha_creacion, p.fecha_edicion, p.dir_img, a.username
                 FROM publicaciones p
                 INNER JOIN admin a ON p.id_admin = a.id
-                ORDER BY p.fecha_creacion DESC";
+                ORDER BY p.fecha_creacion ASC";
         $execute = $this->conn->query($sql);
         return $execute->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getPublicacionesByAutor($id_admin) {
-        $sql = "SELECT * FROM publicaciones WHERE id_admin = ? ORDER BY fecha_creacion DESC";
+        $sql = "SELECT * FROM publicaciones WHERE id_admin = ? ORDER BY fecha_creacion ASC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([$id_admin]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -131,10 +131,11 @@ class publicaciones extends conexion {
         $stmt->execute([$id_admin]);
         return $stmt->rowCount() > 0;
     }
+
     public function GetDirImg() {
-    $sql = "SELECT dir_img FROM publicaciones WHERE dir_img IS NOT NULL";
-    $execute = $this->conn->query($sql);
-    return $execute->fetchAll(PDO::FETCH_COLUMN, 0);
+        $sql = "SELECT dir_img FROM publicaciones WHERE dir_img IS NOT NULL";
+        $execute = $this->conn->query($sql);
+        return $execute->fetchAll(PDO::FETCH_COLUMN, 0);
+    }
 }
 
-}
